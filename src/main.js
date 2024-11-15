@@ -1,0 +1,12 @@
+import express from "express";
+import cors from "cors";
+import userRout from "./routes/user.routes.js";
+import { PORT } from "./config/index.js";
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.get("/", (req, res) => res.send("welcome"));
+app.use(userRout);
+app.listen(PORT);
+console.log(`server on port: ${PORT}`);
+console.log(`url: http://localhost:${PORT}`);
